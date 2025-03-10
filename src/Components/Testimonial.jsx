@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaStar } from "react-icons/fa";
 
 const testimonials = [
   {
@@ -54,11 +53,13 @@ const Testimonials = () => {
             <p className="text-lg italic text-gray-300">
               "{testimonials[currentIndex].review}"
             </p>
-            <div className="mt-4 flex justify-center">
+            <div className="mt-4 flex justify-center space-x-1">
               {Array.from({ length: 5 }).map((_, index) => (
-                <FaStar
+                <i
                   key={index}
-                  className={`text-yellow-400 ${index < testimonials[currentIndex].rating ? "opacity-100" : "opacity-30"}`}
+                  className={`fas fa-star text-yellow-400 ${
+                    index < testimonials[currentIndex].rating ? "opacity-100" : "opacity-30"
+                  }`}
                 />
               ))}
             </div>
@@ -71,14 +72,16 @@ const Testimonials = () => {
             <button
               onClick={prevTestimonial}
               className="px-4 py-2 bg-teal-600 hover:bg-teal-700 rounded-full transition transform hover:scale-105"
+              aria-label="Previous testimonial"
             >
-              ◀
+              <i className="fas fa-chevron-left"></i>
             </button>
             <button
               onClick={nextTestimonial}
               className="px-4 py-2 bg-teal-600 hover:bg-teal-700 rounded-full transition transform hover:scale-105"
+              aria-label="Next testimonial"
             >
-              ▶
+              <i className="fas fa-chevron-right"></i>
             </button>
           </div>
         </div>

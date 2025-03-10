@@ -20,14 +20,7 @@ const CTASection = () => {
               href="#projects" 
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 rounded-xl text-white font-semibold hover:scale-[1.02] transition-transform shadow-lg group"
             >
-              <svg 
-                className="w-6 h-6 mr-3 group-hover:rotate-12 transition-transform" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-              </svg>
+              <i className="fas fa-briefcase mr-3 group-hover:rotate-12 transition-transform text-xl"></i>
               See My Work
             </a>
 
@@ -35,14 +28,7 @@ const CTASection = () => {
               href="#contact" 
               className="inline-flex items-center px-8 py-4 border-2 border-teal-400/30 hover:border-teal-400/50 bg-gray-800/50 hover:bg-gray-800/70 rounded-xl text-teal-400 font-semibold hover:scale-[1.02] transition-transform shadow-lg group"
             >
-              <svg 
-                className="w-6 h-6 mr-3 group-hover:-rotate-12 transition-transform" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
-              </svg>
+              <i className="fas fa-paper-plane mr-3 group-hover:-rotate-12 transition-transform text-xl"></i>
               Contact Me
             </a>
           </div>

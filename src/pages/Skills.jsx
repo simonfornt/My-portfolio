@@ -13,7 +13,26 @@ const Skills = () => {
     { id: 6, name: "Node.js", level: 85, color: "from-green-500 to-green-400" },
   ];
 
-  // Improved scroll animation using IntersectionObserver
+  // Get appropriate Font Awesome icon for each skill
+  const getIcon = (skillName) => {
+    switch(skillName) {
+      case 'HTML5':
+        return <i className="fab fa-html5 text-4xl"></i>;
+      case 'CSS3':
+        return <i className="fab fa-css3-alt text-4xl"></i>;
+      case 'JavaScript':
+        return <i className="fab fa-js-square text-4xl"></i>;
+      case 'React':
+        return <i className="fab fa-react text-4xl"></i>;
+      case 'Tailwind CSS':
+        return <i className="fas fa-code text-4xl"></i>;
+      case 'Node.js':
+        return <i className="fab fa-node-js text-4xl"></i>;
+      default:
+        return <i className="fas fa-code text-4xl"></i>;
+    }
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -34,18 +53,6 @@ const Skills = () => {
       }
     };
   }, []);
-
-  const CodeIcon = () => (
-    <svg
-      className="h-12 w-12"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      aria-hidden="true"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-    </svg>
-  );
 
   return (
     <section ref={skillsRef} className="py-16 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
@@ -68,8 +75,8 @@ const Skills = () => {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="relative z-10">
-                <div className="mb-4">
-                  <CodeIcon />
+                <div className="mb-4 text-blue-400">
+                  {getIcon(skill.name)}
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{skill.name}</h3>
                 <div className="flex items-center justify-between mb-2">

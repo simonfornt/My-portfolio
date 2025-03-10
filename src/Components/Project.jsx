@@ -6,7 +6,7 @@ const projects = [
     title: "E-Commerce Website",
     category: "Web Development",
     description: "A modern e-commerce platform with secure payments.",
-    image: "https://via.placeholder.com/400",
+    image: "https://i.postimg.cc/tCFv51SK/download.jpg",
     liveLink: "https://your-live-project.com",
     github: "https://github.com/yourrepo",
     caseStudy: "This project was built using React, Tailwind CSS, and Firebase for authentication. The biggest challenge was ensuring seamless UI/UX across devices.",
@@ -40,9 +40,7 @@ const ProjectShowcase = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const filteredProjects =
-    selectedCategory === "All"
-      ? projects
-      : projects.filter((project) => project.category === selectedCategory);
+    selectedCategory === "All" ? projects : projects.filter((project) => project.category === selectedCategory);
 
   return (
     <section className="py-20 bg-gray-900 text-white">
@@ -54,13 +52,8 @@ const ProjectShowcase = () => {
         {/* Category Filters */}
         <div className="flex justify-center space-x-4 mb-8">
           {categories.map((category) => (
-            <button
-              key={category}
-              className={`px-4 py-2 rounded-lg font-semibold transition ${
-                selectedCategory === category
-                  ? "bg-teal-500 text-white"
-                  : "bg-gray-700 text-gray-300 hover:bg-gray-600"
-              }`}
+            <button   key={category}   className={`px-4 py-2 rounded-lg font-semibold transition
+               ${  selectedCategory === category    ? "bg-teal-500 text-white"   : "bg-gray-700 text-gray-300 hover:bg-gray-600"  }`}
               onClick={() => setSelectedCategory(category)}
             >
               {category}
