@@ -25,11 +25,11 @@ const Contact = () => {
   return (
     <section className="px-4 py-16 bg-gray-50" id="contact">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:mb-12">
           Get in Touch
         </h2>
 
-        <div className="flex justify-between gap-8 lg:gap-12">
+        <div className="flex flex-col md:flex-row justify-between gap-8 lg:gap-12">
           {/* Contact Form */}
           <div className="w-full md:w-1/2 bg-white p-6 md:p-8 rounded-lg shadow-lg">
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -89,9 +89,9 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="w-full md:w-1/2 bg-white p-6 md:p-8 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-8">Contact Information</h3>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-6 md:mb-8">Contact Information</h3>
             
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               <div className="flex items-start gap-4">
                 <i className="fas fa-map-marker-alt text-blue-600 text-xl mt-1"></i>
                 <div>
