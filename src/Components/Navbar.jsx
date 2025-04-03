@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <nav className="bg-gradient-to-r from-indigo-600 to-blue-500 shadow-lg sticky top-0 z-50">
@@ -21,11 +22,21 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-6">
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/about">About Me</NavLink>
-              <NavLink to="/blog">Blog</NavLink>
-              <NavLink to="/skills">Skills</NavLink>
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/" currentPath={location.pathname}>
+                Home
+              </NavLink>
+              <NavLink to="/about" currentPath={location.pathname}>
+                About Me
+              </NavLink>
+              <NavLink to="/blog" currentPath={location.pathname}>
+                Blog
+              </NavLink>
+              <NavLink to="/skills" currentPath={location.pathname}>
+                Skills
+              </NavLink>
+              <NavLink to="/contact" currentPath={location.pathname}>
+                Contact
+              </NavLink>
               <Link
                 to="/addblog"
                 className="ml-4 bg-white text-indigo-600 px-4 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
@@ -113,25 +124,42 @@ const Navbar = () => {
 };
 
 // Reusable component for desktop navigation links
-const NavLink = ({ to, children }) => (
-  <Link
-    to={to}
-    className="text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium transition-colors relative group"
-  >
-    {children}
-    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
-  </Link>
-);
+const NavLink = ({ to, currentPath, children }) => {
+  const isActive = currentPath === to;
+
+  return (
+    <Link
+      to={to}
+      className={`${
+        isActive ? "text-gray-200" : "text-white"
+      } hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium transition-colors relative group`}
+    >
+      {children}
+      <span
+        className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all ${
+          isActive ? "w-full" : "w-0 group-hover:w-full"
+        }`}
+      ></span>
+    </Link>
+  );
+};
 
 // Reusable component for mobile navigation links
-const MobileNavLink = ({ to, children, onClick, className = "" }) => (
-  <Link
-    to={to}
-    onClick={onClick}
-    className={`block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-500 transition-colors ${className}`}
-  >
-    {children}
-  </Link>
-);
+const MobileNavLink = ({ to, children, onClick, className = "" }) => {
+  const location = useLocation();
+  const isActive = location.pathname === to;
+
+  return (
+    <Link
+      to={to}
+      onClick={onClick}
+      className={`block px-3 py-2 rounded-md text-base font-medium ${
+        isActive ? "bg-blue-700 text-white" : "text-white hover:bg-blue-500"
+      } transition-colors ${className}`}
+    >
+      {children}
+    </Link>
+  );
+};
 
 export default Navbar;
